@@ -1,19 +1,47 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Button, Dimensions, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
+
+  Wwidth = useWindowDimensions().width;
+  Wheight = useWindowDimensions().height
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.safeContainer}>
+        <View style={styles.container}>
+          <StatusBar style="auto" />
+          <View
+            style={[
+              styles.box,
+              {
+                width: Wwidth > 400 ? '90%' : '60%',
+                height: Wheight > 400 ? '70%' : '50%',
+              },
+            ]}
+          >
+            <Text>Welcome!</Text>
+          </View>
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
+
   );
 }
 
 const styles = StyleSheet.create({
+  safeContainer: { flex: 1, backgroundColor: 'lightcoral' },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'plum',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  box: {
+    backgroundColor: 'lightblue',
     alignItems: 'center',
     justifyContent: 'center',
   },
