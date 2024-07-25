@@ -19,6 +19,7 @@ export default function List({ data }) {
                 }}
                 showsVerticalScrollIndicator={false}
                 keyExtractor={(item, index) => index.toString()}
+                ListEmptyComponent={() => <Text style={{ color: 'red' }}>No data found</Text>}
             />
         </View>
 
