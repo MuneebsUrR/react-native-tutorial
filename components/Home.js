@@ -5,8 +5,7 @@ export default function Home({ navigation, route }) {
     return (
         <View style={styles.container}>
             <Text> Hello Home</Text>
-            <Text> Received {route.params?.name}</Text>
-            <Button title='go to about' onPress={() => navigation.navigate('About')}></Button>
+            <Button title='go to about' onPress={() => navigation.toggleDrawer()}></Button>
         </View>
     )
 }
